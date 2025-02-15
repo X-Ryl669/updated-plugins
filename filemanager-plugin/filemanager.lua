@@ -1,4 +1,4 @@
-VERSION = "3.5.2"
+VERSION = "3.5.2.1"
 
 local micro = import("micro")
 local config = import("micro/config")
@@ -528,7 +528,7 @@ local function try_open_at_y(y)
 			-- If it's a file, then open it
 			micro.InfoBar():Message("Filemanager opened ", scanlist[y].abspath)
             -- Opens the absolute path in new tab or a new split
-            if config.GetGlobalOption("filemanager.openontab") then 
+            if config.GetGlobalOption("filemanager.openontab") then
             -- CurView():VSplitIndex(NewBufferFromFile(scanlist[y].abspath), 1)
                 local nfile = scanlist[y].abspath
                 local rpath = shell.RunCommand('realpath \'' .. nfile .. '\' --relative-to=\'' .. os.Getwd() .. '\'')
@@ -1393,6 +1393,9 @@ function init()
     -- Adds colors to the ".." and any dir's in the tree view via syntax highlighting
     -- TODO: Change it to work with git, based on untracked/changed/added/whatever
     config.AddRuntimeFile("filemanager", config.RTSyntax, "syntax.yaml")
+
+    -- Add the help file
+    config.AddRuntimeFile("filemanager", config.RTHelp, "help/filemanager.md")
 
     -- NOTE: This must be below the syntax load command or coloring won't work
     -- Just auto-open if the option is enabled

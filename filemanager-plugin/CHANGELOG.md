@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [Unreleased]
 
+## [3.5.2.1] - 2025-02-15
+
+- Move README to help file and import it into the help system
+
+## [3.5.2] - 2023-09-14
+
+- Allow filemanager to open files in new tab, either using Tab or Enter
+
 ## [3.4.0] - 2018-10-22
 
 ### Fixed
